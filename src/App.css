@@ -36,3 +36,19 @@
     transform: rotate(360deg);
   }
 }
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  gap: 40px;
+  border: 2px solid lightblue;
+  text-decoration: none;
+}
+
+.nav-list a {
+  text-decoration: none;
+  border: 2px solid lightcyan;
+  padding: 6px 10px;
+  background-color: #61dafb;
+  color: black;
+}
