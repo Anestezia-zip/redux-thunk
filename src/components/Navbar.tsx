@@ -9,6 +9,7 @@ const Navbar = () => (
       <li><Link to="/">Todos</Link></li>
       <li><Link to="/albums">Albums</Link></li>
       <li><Link to="/comments">Comments</Link></li>
+      <li><Link to="/ricknmorty">Rick and Morty</Link></li>
     </ul>
   </nav>
 );

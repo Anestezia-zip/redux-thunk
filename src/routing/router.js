@@ -1,9 +1,10 @@
 import { createBrowserRouter } from 'react-router-dom';
 import { Outlet } from 'react-router-dom';
-import Todos from '../components/Todos'
-import Albums from '../components/Albums'
-import Comments from '../components/Comments'
-import Navbar from '../components/Navbar'
+import Todos from '../components/Todos.tsx'
+import Albums from '../components/Albums.tsx'
+import Comments from '../components/Comments.tsx'
+import Navbar from '../components/Navbar.tsx'
+import RicknMorty from '../components/RicknMorty.tsx';
 
 const AppLayout = () => {
   return(
@@ -30,6 +31,10 @@ export const router = createBrowserRouter([
       {
         path: 'comments',
         element: <Comments />,
+      },
+      {
+        path: 'ricknmorty',
+        element: <RicknMorty />,
       }
     ]
   }

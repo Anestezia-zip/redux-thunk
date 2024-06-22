@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getComments } from '../redux/actions/dataActions';
-import Post from './Post';
+import { getComments } from '../redux/actions/dataActions.ts';
+import Post from './Post.tsx';
+import { AppDispatch, AppStateType } from '../redux/storage.ts';
 
 const Comments = () => {
     const [post, setPost] = useState('')
     const [showPost, setShowPost] = useState(false)
 
-    const dispatch = useDispatch();
-    const comments = useSelector((state) => state.data.comments)
+    const dispatch: AppDispatch = useDispatch();
+    const comments = useSelector((state: AppStateType) => state.data.comments)
 
     useEffect(() => {
-       dispatch(getComments(dispatch))
+       dispatch(getComments())
     }, []);
 
     const handleCommentClick = (postId) => {

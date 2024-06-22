@@ -1,13 +1,19 @@
+import React from 'react';
 import { useEffect, useState } from 'react';
+import { Post } from '../redux/reducers/dataReducer.ts';
 
-const Post = ({ postId }) => {
-  const [post, setPost] = useState({});
+const PostPage = ({ postId }) => {
+  const [post, setPost] = useState<Post | null>(null);
 
   useEffect(() => {
     fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`)
       .then((res) => res.json())
       .then((data) => setPost(data));
   }, [postId]);
+
+  if (!post) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div>
@@ -19,4 +25,4 @@ const Post = ({ postId }) => {
   );
 };
 
-export default Post;
+export default PostPage;
