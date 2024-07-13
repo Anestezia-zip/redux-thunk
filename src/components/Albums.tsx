@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getAlbums } from '../redux/actions/dataActions.ts';
 import { AppDispatch, AppStateType } from '../redux/storage.ts';
-import { Album } from '../redux/reducers/dataReducer.ts';
+import { Album } from '../redux/interfaces/interfaces.ts';
+import { getAlbums } from '../redux/slices/dataSlice.ts';
 
 const Albums = () => {
     const dispatch: AppDispatch = useDispatch();

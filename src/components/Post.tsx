@@ -1,6 +1,6 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
-import { Post } from '../redux/reducers/dataReducer.ts';
+import { Post } from '../redux/interfaces/interfaces';
 
 const PostPage = ({ postId }) => {
   const [post, setPost] = useState<Post | null>(null);

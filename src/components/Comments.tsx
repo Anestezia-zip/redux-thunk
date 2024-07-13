@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getComments } from '../redux/actions/dataActions.ts';
 import Post from './Post.tsx';
 import { AppDispatch, AppStateType } from '../redux/storage.ts';
+import { getComments } from '../redux/slices/dataSlice.ts';
 
 const Comments = () => {
     const [post, setPost] = useState('')

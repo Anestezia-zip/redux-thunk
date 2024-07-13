@@ -1,19 +1,20 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getRMNextPageThunk, getRMThunk, Character, Info } from "../redux/reducers/ricknMortyReducer.ts";
-import { AppDispatch, AppStateType } from "../redux/storage.ts";
+import { AppDispatch, AppStateType } from "../redux/storage";
 import React from "react";
+import { Character, Info } from "../redux/interfaces/interfaces";
+import { getFirstPageThunk, getNextPageThunk } from "../redux/slices/ricknMortySlice.ts";
 
 const RicknMorty = () => {
   const dispatch: AppDispatch = useDispatch();
-  const getCharacters = () => dispatch(getRMThunk());
-  const getNextCharacters = (url: string) => dispatch(getRMNextPageThunk(url));
-  const characters: Character[] | [] = useSelector((store: AppStateType) => store.ricknMortyReducer.results)
-  const info: Info | {} = useSelector((store: AppStateType) => store.ricknMortyReducer.info)
-    
+  const characters: Character[] | [] = useSelector((store: AppStateType) => store.ricknMorty.results)  
+  const info: Info | {} = useSelector((store: AppStateType) => store.ricknMorty.info)
 
   useEffect(() => {
-    getCharacters()    
+    // RicknMortyService.getCharacters()
+    //   .then(res => dispatch(getFirstPage(res.data)))
+    //   .catch(err => console.error('API Error:', err));
+    dispatch(getFirstPageThunk())
   }, []);
 
   return (
@@ -27,9 +28,10 @@ const RicknMorty = () => {
           </div>
         ))}
       </div>
-      <button onClick={() => getNextCharacters('next' in info ? info.next : '')}>Get more</button>
+      <button onClick={() => dispatch(getNextPageThunk('next' in info ? info.next : ''))}>Get more</button>
     </div>
   )
 };
 
 export default RicknMorty;
+
